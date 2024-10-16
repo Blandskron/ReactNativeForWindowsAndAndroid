@@ -1,6 +1,6 @@
 import React from 'react';
 import { TouchableOpacity, SafeAreaView, StyleSheet, Text, TextInput, View, ImageBackground, Image } from 'react-native';
-import CustomText from '../typography/CustomText';
+import CustomText from '../../typography/CustomText';
 
 const AndroidHome = ({ email, setEmail, handleNavigateToRegister, navigation }) => {
     const image = {
@@ -34,7 +34,7 @@ const AndroidHome = ({ email, setEmail, handleNavigateToRegister, navigation }) 
             </View>
 
             <View style={styles.footerAndroid}>
-                <Image source={require('../../../assets/images/logo.png')} style={styles.logo} />
+                <Image source={require('../../../../assets/images/logo.png')} style={styles.logo} />
                 <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Login')}>
                     <Text style={styles.buttonText}>Ir a Login</Text>
                 </TouchableOpacity>
