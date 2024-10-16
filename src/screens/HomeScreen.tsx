@@ -1,36 +1,34 @@
-// src/screens/HomeScreen.tsx
 import React from 'react';
-import { Button, SafeAreaView, StyleSheet, Text } from 'react-native';
+import { Platform } from 'react-native';
+import WindowsHome from '../components/windows/WindowsHome';
+import AndroidHome from '../components/android/AndroidHome';
 
 const HomeScreen = ({ navigation }) => {
+    const [email, setEmail] = React.useState('');
+
+    const handleNavigateToRegister = () => {
+        navigation.navigate('Register', { email });
+    };
+
+    if (Platform.OS === 'windows') {
+        return (
+            <WindowsHome
+                email={email}
+                setEmail={setEmail}
+                handleNavigateToRegister={handleNavigateToRegister}
+                navigation={navigation}
+            />
+        );
+    }
+
     return (
-        <SafeAreaView style={styles.container}>
-            <Text style={styles.text}>
-                {Platform.OS === 'windows' ? 'Hola, bienvenido a Windows' : 'Bienvenido a Android'}
-            </Text>
-            <Button
-                title={Platform.OS === 'windows' ? 'Regístrate, estás en Windows' : 'Regístrate, estás en Android'}
-                onPress={() => navigation.navigate('Register')}
-            />
-            <Button
-                title={Platform.OS === 'windows' ? 'Login, estás en Windows' : 'Login, estás en Android'}
-                onPress={() => navigation.navigate('Login')}
-            />
-        </SafeAreaView>
+        <AndroidHome
+            email={email}
+            setEmail={setEmail}
+            handleNavigateToRegister={handleNavigateToRegister}
+            navigation={navigation}
+        />
     );
 };
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: 16,
-    },
-    text: {
-        fontSize: 24,
-        marginBottom: 20,
-    },
-});
 
 export default HomeScreen;
