@@ -14,10 +14,13 @@ const AndroidHome = ({ email, setEmail, handleNavigateToRegister, navigation }) 
                     <View style={styles.overlay} />
                     <View style={styles.innerContainer}>
                         <CustomText variant="Bold" style={styles.welcomeText}>
-                            MoviesApp
+                            Peliculas y series ilimitadas y mucho mas
                         </CustomText>
                         <CustomText variant="Regular" style={styles.textRegular}>
-                            Vive tu Movie
+                            A partir de $6.540. Cancela cuando quieras.
+                        </CustomText>
+                        <CustomText variant="Light" style={styles.instructions}>
+                            Quieres ver MoviesApp ya? Ingresa tu email para crear una cuenta o reiniciar tu membresia de MoviesApp.
                         </CustomText>
                         <TextInput
                             style={styles.input}
@@ -67,6 +70,8 @@ const styles = StyleSheet.create({
     instructions: {
         fontSize: 14,
         color: '#fff',
+        textAlign: 'center',
+        marginBottom: 7,
     },
     logo: {
         width: 40,
@@ -99,11 +104,13 @@ const styles = StyleSheet.create({
         fontWeight: '800',
         color: '#FFFFFF',
         marginBottom: 5,
+        textAlign: 'center',
     },
     textRegular: {
         fontSize: 18,
         color: '#FFFFFF',
         marginBottom: 20,
+        textAlign: 'center',
     },
     input: {
         borderWidth: 1,

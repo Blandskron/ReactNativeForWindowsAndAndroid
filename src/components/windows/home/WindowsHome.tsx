@@ -12,7 +12,7 @@ const WindowsHome = ({ email, setEmail, handleNavigateToRegister, navigation }) 
             <View style={styles.header}>
                 <Image source={require('../../../../assets/images/logo.png')} style={styles.logo} />
                 <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Login')}>
-                    <Text style={styles.buttonText}>Ir a Login</Text>
+                    <Text style={styles.buttonText}>Iniciar sesion</Text>
                 </TouchableOpacity>
             </View>
 
@@ -21,10 +21,13 @@ const WindowsHome = ({ email, setEmail, handleNavigateToRegister, navigation }) 
                     <View style={styles.overlay} />
                     <View style={styles.innerContainer}>
                         <CustomText variant="Bold" style={styles.welcomeText}>
-                            MoviesApp
+                            Peliculas y series ilimitadas y mucho mas
                         </CustomText>
                         <CustomText variant="Regular" style={styles.textRegular}>
-                            Vive tu Movie
+                            A partir de $6.540. Cancela cuando quieras.
+                        </CustomText>
+                        <CustomText variant="Light" style={styles.instructions}>
+                            Quieres ver MoviesApp ya? Ingresa tu email para crear una cuenta o reiniciar tu membresia de MoviesApp.
                         </CustomText>
                         <View style={styles.inputButtonContainer}>
                             <TextInput
@@ -35,7 +38,7 @@ const WindowsHome = ({ email, setEmail, handleNavigateToRegister, navigation }) 
                                 onChangeText={setEmail}
                             />
                             <TouchableOpacity style={styles.button} onPress={handleNavigateToRegister}>
-                                <Text style={styles.buttonText}>Registrarse</Text>
+                                <Text style={styles.buttonText}>Comenzar ></Text>
                             </TouchableOpacity>
                         </View>
                     </View>
@@ -97,15 +100,19 @@ const styles = StyleSheet.create({
         fontWeight: '800',
         color: '#FFFFFF',
         marginBottom: 5,
+        textAlign: 'center',
     },
     textRegular: {
         fontSize: 18,
         color: '#FFFFFF',
         marginBottom: 20,
+        textAlign: 'center',
     },
     instructions: {
         fontSize: 14,
         color: '#fff',
+        textAlign: 'center',
+        marginBottom: 7,
     },
     inputButtonContainer: {
         flexDirection: 'row',
