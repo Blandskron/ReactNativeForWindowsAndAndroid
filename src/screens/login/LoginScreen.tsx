@@ -4,14 +4,18 @@ import WindowsLogin from '../../components/windows/login/WindowsLogin';
 import AndroidLogin from '../../components/android/login/AndroidLogin';
 
 const LoginScreen = ({ navigation }) => {
+    const handleNavigateToRegister = () => {
+        navigation.navigate('Register');
+    };
+
     if (Platform.OS === 'windows') {
         return (
-            <WindowsLogin navigation={navigation} />
+            <WindowsLogin navigation={navigation} handleNavigateToRegister={handleNavigateToRegister} />
         );
     }
 
     return (
-        <AndroidLogin navigation={navigation} />
+        <AndroidLogin navigation={navigation} handleNavigateToRegister={handleNavigateToRegister} />
     );
 };
 

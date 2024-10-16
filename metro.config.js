@@ -30,7 +30,7 @@ const config = {
       new RegExp(`${rnwPath}/target/.*`),
       /.*\.ProjectImports\.zip/,
     ]),
-    //
+    sourceExts: ['jsx', 'js', 'ts', 'tsx', 'json'], 
   },
   transformer: {
     getTransformOptions: async () => ({
