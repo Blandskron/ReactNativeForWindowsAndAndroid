@@ -1,7 +1,7 @@
 import React from 'react';
 import { Platform } from 'react-native';
-import WindowsHome from '../../components/windows/home/WindowsHome';
-import AndroidHome from '../../components/android/home/AndroidHome';
+import WindowsHome from '../../components/home/WindowsHome';
+import AndroidHome from '../../components/home/AndroidHome';
 
 const HomeScreen = ({ navigation }) => {
     const [email, setEmail] = React.useState('');
