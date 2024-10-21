@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from './src/screens/home/HomeScreen';
 import LoginScreen from './src/screens/login/LoginScreen';
-import RegisterScreen from './src/screens/RegisterScreen';
+import RegisterScreen from './src/screens/register/RegisterScreen';
 import DashboardScreen from './src/screens/DashboardScreen';
 
 type RootStackParamList = {

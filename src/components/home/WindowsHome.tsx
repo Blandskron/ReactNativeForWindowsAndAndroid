@@ -1,14 +1,21 @@
 import React from 'react';
 import { TouchableOpacity, SafeAreaView, StyleSheet, Text, TextInput, View, ImageBackground, Image } from 'react-native';
-import CustomText from '../../typography/CustomText';
+import CustomText from '../typography/CustomText';
 
-const AndroidHome = ({ email, setEmail, handleNavigateToRegister, navigation }) => {
+const WindowsHome = ({ email, setEmail, handleNavigateToRegister, navigation }) => {
     const image = {
         uri: "https://cdn.clarosports.com/clarosports/2023/03/tendencias-203623.jpg",
     };
 
     return (
         <SafeAreaView style={styles.container}>
+            <View style={styles.header}>
+                <Image source={require('../../../assets/images/logo.png')} style={styles.logo} />
+                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Login')}>
+                    <Text style={styles.buttonText}>Iniciar sesion</Text>
+                </TouchableOpacity>
+            </View>
+
             <View style={styles.content}>
                 <ImageBackground source={image} style={styles.image}>
                     <View style={styles.overlay} />
@@ -22,26 +29,22 @@ const AndroidHome = ({ email, setEmail, handleNavigateToRegister, navigation }) 
                         <CustomText variant="Light" style={styles.instructions}>
                             Quieres ver MoviesApp ya? Ingresa tu email para crear una cuenta o reiniciar tu membresia de MoviesApp.
                         </CustomText>
-                        <TextInput
-                            style={styles.input}
-                            placeholder="Ingresa tu correo"
-                            placeholderTextColor="#fff"
-                            value={email}
-                            onChangeText={setEmail}
-                        />
-                        <TouchableOpacity style={styles.button} onPress={handleNavigateToRegister}>
-                            <Text style={styles.buttonText}>Registrarse</Text>
-                        </TouchableOpacity>
+                        <View style={styles.inputButtonContainer}>
+                            <TextInput
+                                style={styles.input}
+                                placeholder="Ingresa tu correo"
+                                placeholderTextColor="#fff"
+                                value={email}
+                                onChangeText={setEmail}
+                            />
+                            <TouchableOpacity style={styles.button} onPress={handleNavigateToRegister}>
+                                <Text style={styles.buttonText}>Comenzar ></Text>
+                            </TouchableOpacity>
+                        </View>
                     </View>
                 </ImageBackground>
             </View>
 
-            <View style={styles.footerAndroid}>
-                <Image source={require('../../../../assets/images/logo.png')} style={styles.logo} />
-                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Login')}>
-                    <Text style={styles.buttonText}>Ir a Login</Text>
-                </TouchableOpacity>
-            </View>
             <View style={styles.footer}>
                 <CustomText variant="Light" style={styles.instructions}>
                     Blandskron Movies App
@@ -56,7 +59,6 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#141414',
         padding: 16,
-        textAlign: 'center',
     },
     header: {
         flexDirection: 'row',
@@ -67,16 +69,10 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
         borderBottomColor: '#333333',
     },
-    instructions: {
-        fontSize: 14,
-        color: '#fff',
-        textAlign: 'center',
-        marginBottom: 7,
-    },
     logo: {
-        width: 40,
-        height: 40,
-        marginBottom: 7,
+        width: 60,
+        height: 60,
+        marginBottom: 5,
     },
     content: {
         flex: 1,
@@ -112,14 +108,37 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         textAlign: 'center',
     },
+    instructions: {
+        fontSize: 14,
+        color: '#fff',
+        textAlign: 'center',
+        marginBottom: 7,
+    },
+    inputButtonContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        width: '100%',
+    },
     input: {
+        flex: 1,
         borderWidth: 1,
         borderColor: '#2bb871',
         backgroundColor: 'rgba(43, 113, 225, 0.2)',
         padding: 10,
-        width: '100%',
-        marginBottom: 20,
+        marginRight: 10,
         borderRadius: 4,
+    },
+    button: {
+        backgroundColor: '#E50914',
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+        borderRadius: 4,
+    },
+    buttonText: {
+        color: '#FFFFFF',
+        fontSize: 16,
+        textAlign: 'center',
     },
     footer: {
         alignItems: 'center',
@@ -128,27 +147,6 @@ const styles = StyleSheet.create({
         borderTopWidth: 1,
         borderTopColor: '#333333',
     },
-    footerAndroid: {
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-        alignItems: 'center',
-        padding: 16,
-        backgroundColor: '#141414',
-        borderTopWidth: 1,
-        borderTopColor: '#333333',
-    },
-    button: {
-        backgroundColor: '#E50914',
-        paddingVertical: 10,
-        paddingHorizontal: 20,
-        borderRadius: 4,
-        marginBottom: 10,
-    },
-    buttonText: {
-        color: '#FFFFFF',
-        fontSize: 16,
-        textAlign: 'center',
-    },
 });
 
-export default AndroidHome;
+export default WindowsHome;

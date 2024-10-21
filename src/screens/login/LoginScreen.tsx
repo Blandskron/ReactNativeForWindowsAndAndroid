@@ -1,7 +1,7 @@
 import React from 'react';
 import { Platform } from 'react-native';
-import WindowsLogin from '../../components/windows/login/WindowsLogin';
-import AndroidLogin from '../../components/android/login/AndroidLogin';
+import WindowsLogin from '../../components/login/WindowsLogin';
+import AndroidLogin from '../../components/login/AndroidLogin';
 
 const LoginScreen = ({ navigation }) => {
     const handleNavigateToRegister = () => {

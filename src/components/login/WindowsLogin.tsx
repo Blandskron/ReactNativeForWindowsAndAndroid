@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { TouchableOpacity, SafeAreaView, StyleSheet, TextInput, View, Image, Alert } from 'react-native';
-import CustomText from '../../typography/CustomText';
-import { loginUser } from '../../../utils/api'; // Ajustar la ruta de importación según la estructura del proyecto
+import CustomText from '../typography/CustomText';
+import { loginUser } from '../../utils/api'; // Ajustar la ruta de importación según la estructura del proyecto
 
-const AndroidLogin = ({ handleNavigateToRegister, navigation }) => {
+const WindowsLogin = ({ handleNavigateToRegister, navigation }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -24,14 +24,17 @@ const AndroidLogin = ({ handleNavigateToRegister, navigation }) => {
 
     return (
         <SafeAreaView style={styles.container}>
-            <View style={styles.header}>
-                <Image source={require('../../../../assets/images/logo.png')} style={styles.logo} />
-            </View>
-            <View style={styles.content}>
-                <CustomText variant="Regular" style={styles.welcomeText}>
+            <View style={styles.leftPane}>
+                <Image source={require('../../../assets/images/logo.png')} style={styles.logo} />
+                <CustomText variant="Regular" style={styles.brandText}>
                     Bienvenido a MoviesApp
                 </CustomText>
-                <View style={styles.inputButtonContainer}>
+            </View>
+            <View style={styles.rightPane}>
+                <View style={styles.formContainer}>
+                    <CustomText variant="Regular" style={styles.welcomeText}>
+                        Iniciar Sesión
+                    </CustomText>
                     <TextInput
                         style={styles.input}
                         placeholder="Ingresa tu usuario"
@@ -71,37 +74,44 @@ const AndroidLogin = ({ handleNavigateToRegister, navigation }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        flexDirection: 'row',
         backgroundColor: '#141414',
-        padding: 16,
     },
-    header: {
+    leftPane: {
+        flex: 0.6,
         justifyContent: 'center',
         alignItems: 'center',
-        paddingVertical: 30,
+        padding: 20,
+    },
+    formContainer: {
+        width: '80%',
+    },
+    rightPane: {
+        flex: 0.4,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#1A1A1A',
+        padding: 20,
     },
     logo: {
-        width: 120,
-        height: 120,
+        width: 200,
+        height: 200,
         marginBottom: 20,
     },
-    content: {
-        flex: 1,
-        alignItems: 'center',
-        paddingVertical: 20,
-    },
     welcomeText: {
-        fontSize: 24,
+        fontSize: 22,
         fontWeight: '600',
         color: '#FFFFFF',
-        marginBottom: 30,
+        marginBottom: 20,
         textAlign: 'center',
     },
-    inputButtonContainer: {
-        width: '100%',
-        paddingHorizontal: 20,
+    brandText: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        color: '#FFFFFF',
+        textAlign: 'center',
     },
     input: {
-        width: '100%',
         borderWidth: 1,
         borderColor: '#2bb871',
         backgroundColor: 'rgba(43, 113, 225, 0.2)',
@@ -124,7 +134,7 @@ const styles = StyleSheet.create({
     registerContainer: {
         flexDirection: 'row',
         justifyContent: 'center',
-        marginTop: 20,
+        marginTop: 10,
     },
     registerText: {
         color: '#FFFFFF',
@@ -137,4 +147,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default AndroidLogin;
+export default WindowsLogin;
